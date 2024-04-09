@@ -1,12 +1,20 @@
-import { useState } from "react";
+
 import "./App.css";
 
 import { Show, Grid, GridItem } from "@chakra-ui/react";
 import { NavBar } from "./components/NavBar";
 
-function App() {
-  const [count, setCount] = useState(0);
 
+import { Cards } from "./components/Cards/Cards";
+
+const apiKey = '413179f7b37044a3b53b63db111fda8c'; 
+const apiURL = 'https://api.rawg.io/api/games';
+
+
+
+function App() {
+
+ 
   return (
     <>
      <Grid
@@ -33,7 +41,7 @@ templateAreas={{base: `"nav" "main"`,
 </Show>
 
   <GridItem pl='2' bg='green.300' area={'main'}>
-    Main
+    <Cards />
   </GridItem>
   
 </Grid>
