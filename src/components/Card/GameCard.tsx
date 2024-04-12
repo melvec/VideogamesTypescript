@@ -10,7 +10,9 @@ interface Props {
 export const GameCard = ({game}: Props) => {
   return (
     <>
-      <Box
+      <Box 
+      justifyContent="center"
+      bg="gray.700"
       maxW="sm"
       borderWidth="1px"
       borderRadius="lg"
