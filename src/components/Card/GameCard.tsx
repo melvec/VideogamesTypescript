@@ -2,6 +2,7 @@
 import { Box, Image, Text } from '@chakra-ui/react'
 
 import { Game } from '../../hooks/useGames'
+import resizeImage from '../../services/resizeImage';
 import { PlatformIcons } from '../PlatformIcons';
 
 interface Props {
@@ -17,6 +18,7 @@ export const GameCard = ({game}: Props) => {
       justifyContent="center"
       bg="gray.700"
       maxW="sm"
+     
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
@@ -25,15 +27,17 @@ export const GameCard = ({game}: Props) => {
       flexGrow={{ base: 1, md: 0 }}
       flexBasis={{ base: '100%', md: '50%' }}
     >
-      <Image src={game.background_image} alt={game.name} />
+      <Image src={resizeImage(game.background_image)} alt={game.name} />
 
-      <Box p="6">
-      
-        <Text mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
+     <Box padding={5}>
+
+        <Text color="white" mt="1" fontWeight="semibold" as="h3" lineHeight="tight" isTruncated>
           {game.name}
         </Text>
-      </Box>
+    
       <PlatformIcons parent_platforms={game.parent_platforms.map(p=> p.platform)} />
+      
+     </Box>
       
      
     </Box>

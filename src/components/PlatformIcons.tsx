@@ -41,7 +41,7 @@ export const PlatformIcons = ({parent_platforms}: Props) => {
       return (
         <Box display="inline-flex"> {/* Set display to inline-flex to render icons inline */}
          
-          <ul style={{ listStyle: 'none', padding: 10, margin: 0, color: '#D3D3D3' }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: '#D3D3D3' }}>
             {parent_platforms.map((platform) => (
               <li key={platform.id} style={{ display: 'inline-flex', alignItems: 'center', marginRight: '8px' }}> {/* Set display to inline-flex for each list item */}
                 {renderPlatformIcon(platform.name)} {/* Render platform icon */}
