@@ -1,4 +1,4 @@
-import { Box, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import { Platform } from '../hooks/useGames'
 import { FaWindows, FaPlaystation, FaXbox, FaApple, FaLinux, FaAndroid } from 'react-icons/fa'; // Import icons from react-icons library
 import { SiNintendo } from "react-icons/si";

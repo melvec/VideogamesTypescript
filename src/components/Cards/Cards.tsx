@@ -7,10 +7,10 @@ import { GameCard } from '../Card/GameCard';
 
 
 export const Cards = () => {
-const {games, error, isLoading} = useGames();
+const {data, error, isLoading} = useGames();
 
 
-console.log(games);
+console.log(data);
   return (
 <>
 {error && (
@@ -27,8 +27,8 @@ console.log(games);
       <Text  color={'gray.500'} ml={4} fontWeight="bold" fontSize="xl">Loading...</Text>
     </Center>
 )}
-{games.map((game)=> 
-<GameCard key={game.id } game={game} />
+{data.map((data)=> 
+<GameCard key={data.id } game={data} />
 
 )}
 </SimpleGrid>
