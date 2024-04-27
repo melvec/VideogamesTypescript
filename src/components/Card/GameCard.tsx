@@ -2,7 +2,7 @@
 import { Box, Image, Text } from '@chakra-ui/react'
 
 import { Game } from '../../hooks/useGames'
-import resizeImage from '../../services/resizeImage';
+import getCroppedImageUrl from '../../services/resizeImage';
 import { PlatformIcons } from '../PlatformIcons';
 
 interface Props {
@@ -27,7 +27,7 @@ export const GameCard = ({game}: Props) => {
       flexGrow={{ base: 1, md: 0 }}
       flexBasis={{ base: '100%', md: '50%' }}
     >
-      <Image src={resizeImage(game.background_image)} alt={game.name} />
+      <Image src={getCroppedImageUrl(game.background_image)} alt={game.name} />
 
      <Box padding={5}>
 
