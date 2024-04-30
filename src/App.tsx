@@ -5,8 +5,16 @@ import { NavBar } from "./components/NavBar";
 
 import { Cards } from "./components/Cards/Cards";
 import { Genres } from "./components/Genres";
+import { useState } from "react";
 
 function App() {
+
+  const [selectedGenre, setSelectedGenre] = useState('');
+
+  const handleGenreSelect = (genreName: string) => {
+    setSelectedGenre(genreName);
+  };
+
   return (
     <>
       <Grid
@@ -32,12 +40,12 @@ function App() {
 
         <Show above="lg">
           <GridItem pl="2" padding={4}  area={"aside"}>
-            <Genres />
+          <Genres onSelectGenre={handleGenreSelect} />
           </GridItem>
         </Show>
 
         <GridItem pl="2" area={"main"}>
-          <Cards />
+        <Cards selectedGenre={selectedGenre} />
         </GridItem>
       </Grid>
     </>

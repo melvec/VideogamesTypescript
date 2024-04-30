@@ -1,16 +1,26 @@
 import { SimpleGrid, Text } from '@chakra-ui/react';
-
 import { Center, Spinner } from "@chakra-ui/react";
 
-import useGames from '../../hooks/useGames';
+import useGames , {Game}from '../../hooks/useGames';
+import {Genre} from '../../hooks/useGenres';
 import { GameCard } from '../Card/GameCard';
 
 
-export const Cards = () => {
+
+
+interface CardsProps {
+  selectedGenre: string;
+}
+
+export const Cards: React.FC<CardsProps> = ({ selectedGenre }) => {
 const {data, error, isLoading} = useGames();
 
+const genre = "Shooter"
 
-console.log(data);
+const filteredGames: Game[] = selectedGenre
+? data.filter(game => game.genres.some(genreObj => genreObj.name === selectedGenre))
+: data;
+
   return (
 <>
 {error && (
@@ -27,8 +37,8 @@ console.log(data);
       <Text  color={'gray.500'} ml={4} fontWeight="bold" fontSize="xl">Loading...</Text>
     </Center>
 )}
-{data.map((data)=> 
-<GameCard key={data.id } game={data} />
+{filteredGames.map((game)=> 
+<GameCard key={game.id } game={game} />
 
 )}
 </SimpleGrid>

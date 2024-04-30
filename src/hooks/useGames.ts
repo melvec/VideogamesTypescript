@@ -1,7 +1,5 @@
-import { CanceledError } from 'axios';
-import  { useEffect, useState } from 'react'
-import apiClient from '../services/api-client';
 import useData from './useData';
+import  { Genre } from './useGenres'
 
 
 export interface Platform{
@@ -14,7 +12,8 @@ export interface Game {
     id: number;
     name: string;
     background_image: string;
-    parent_platforms: {platform: Platform}[]
+    parent_platforms: {platform: Platform}[];
+    genres: Genre[];
   }
   
  

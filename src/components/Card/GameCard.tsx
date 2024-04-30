@@ -2,6 +2,7 @@
 import { Box, Image, Text } from '@chakra-ui/react'
 
 import { Game } from '../../hooks/useGames'
+import { Genre } from '../../hooks/useGenres';
 import getCroppedImageUrl from '../../services/resizeImage';
 import { PlatformIcons } from '../PlatformIcons';
 
@@ -36,6 +37,7 @@ export const GameCard = ({game}: Props) => {
         </Text>
     
       <PlatformIcons parent_platforms={game.parent_platforms.map(p=> p.platform)} />
+  
       
      </Box>
       
