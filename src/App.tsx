@@ -40,7 +40,7 @@ function App() {
 
         <Show above="lg">
           <GridItem pl="2" padding={4}  area={"aside"}>
-          <Genres onSelectGenre={handleGenreSelect} />
+          <Genres selectedGenre={selectedGenre} onSelectGenre={handleGenreSelect} />
           </GridItem>
         </Show>
 

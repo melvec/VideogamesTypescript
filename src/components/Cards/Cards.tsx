@@ -2,7 +2,6 @@ import { SimpleGrid, Text } from '@chakra-ui/react';
 import { Center, Spinner } from "@chakra-ui/react";
 
 import useGames , {Game}from '../../hooks/useGames';
-import {Genre} from '../../hooks/useGenres';
 import { GameCard } from '../Card/GameCard';
 
 
@@ -14,8 +13,6 @@ interface CardsProps {
 
 export const Cards: React.FC<CardsProps> = ({ selectedGenre }) => {
 const {data, error, isLoading} = useGames();
-
-const genre = "Shooter"
 
 const filteredGames: Game[] = selectedGenre
 ? data.filter(game => game.genres.some(genreObj => genreObj.name === selectedGenre))

@@ -5,10 +5,11 @@ import { useState } from 'react';
 
 interface GenresProps {
   onSelectGenre: (genreName: string) => void;
+  selectedGenre: string;
  
 }
 
-export const Genres: React.FC<GenresProps> = ({ onSelectGenre }) => {
+export const Genres: React.FC<GenresProps> = ({selectedGenre,  onSelectGenre }) => {
   const { data } = useGenres();
 
 
@@ -25,7 +26,7 @@ export const Genres: React.FC<GenresProps> = ({ onSelectGenre }) => {
                 src={getCroppedImageUrl(genre.image_background)}
                 alt={genre.name}
               />
-              <Button onClick={() => onSelectGenre(genre.name)}>{genre.name}</Button>
+              <Button variant='link' fontWeight={selectedGenre === genre.name? 'bold':'normal'} onClick={() => onSelectGenre(genre.name)}>{genre.name}</Button>
             </HStack>
           </ListItem>
         ))}
