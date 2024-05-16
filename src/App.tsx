@@ -6,13 +6,19 @@ import { NavBar } from "./components/NavBar";
 import { Cards } from "./components/Cards/Cards";
 import { Genres } from "./components/Genres";
 import { useState } from "react";
+import { Platforms } from "./components/Platforms";
+
 
 function App() {
 
   const [selectedGenre, setSelectedGenre] = useState('');
+  const [selectedPlatform, setSelectedPlatform] = useState('');
 
   const handleGenreSelect = (genreName: string) => {
     setSelectedGenre(genreName);
+  };
+  const handlePlatformSelect = (platformName: string) => {
+    setSelectedPlatform(platformName);
   };
 
   return (
@@ -45,7 +51,8 @@ function App() {
         </Show>
 
         <GridItem pl="2" area={"main"}>
-        <Cards selectedGenre={selectedGenre} />
+          <Platforms  selectedPlatform={selectedPlatform} onSelectPlatform={handlePlatformSelect} />
+        <Cards selectedGenre={selectedGenre} selectedPlatform={selectedPlatform} />
         </GridItem>
       </Grid>
     </>

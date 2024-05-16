@@ -9,14 +9,20 @@ import { GameCard } from '../Card/GameCard';
 
 interface CardsProps {
   selectedGenre: string;
+  selectedPlatform: string;
 }
 
-export const Cards: React.FC<CardsProps> = ({ selectedGenre }) => {
+export const Cards: React.FC<CardsProps> = ({ selectedGenre, selectedPlatform }) => {
 const {data, error, isLoading} = useGames();
 
 const filteredGames: Game[] = selectedGenre
 ? data.filter(game => game.genres.some(genreObj => genreObj.name === selectedGenre))
 : data;
+
+
+const filteredGamesByPlatform: Game[] = selectedPlatform
+? filteredGames.filter(game => game.parent_platforms.some(platformObj => platformObj.platform.name === selectedPlatform))
+: filteredGames;
 
   return (
 <>
@@ -34,7 +40,7 @@ const filteredGames: Game[] = selectedGenre
       <Text  color={'gray.500'} ml={4} fontWeight="bold" fontSize="xl">Loading...</Text>
     </Center>
 )}
-{filteredGames.map((game)=> 
+{filteredGamesByPlatform.map((game)=> 
 <GameCard key={game.id } game={game} />
 
 )}

@@ -12,7 +12,7 @@ interface Props {
 
 export const GameCard = ({game}: Props) => {
   
-  console.log(game);
+ // console.log(game);
   return (
     <>
       <Box 
