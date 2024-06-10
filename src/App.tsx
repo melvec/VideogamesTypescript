@@ -8,21 +8,16 @@ import { Genres } from "./components/Genres";
 import { useState } from "react";
 import { Platforms } from "./components/Platforms";
 import { SortSelector } from "./components/SortSelector";
+import { Genre } from "./hooks/useGenres";
+import { Platform } from "./hooks/usePlatforms";
+
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
 
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState("");
-  const [selectedPlatform, setSelectedPlatform] = useState("");
-  const [selectedSortBy, setSelectedSortBy] = useState("");
-
-  const handleGenreSelect = (genreName: string) => {
-    setSelectedGenre(genreName);
-  };
-  const handlePlatformSelect = (platformName: string) => {
-    setSelectedPlatform(platformName);
-  };
-  const handleSortBy = (platformName: string) => {
-    setSelectedPlatform(platformName);
-  };
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
     <>
@@ -48,8 +43,8 @@ function App() {
         <Show above="lg">
           <GridItem pl="2" padding={4} area={"aside"}>
             <Genres
-              selectedGenre={selectedGenre}
-              onSelectGenre={handleGenreSelect}
+              selectedGenre={gameQuery.genre}
+              onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
             />
           </GridItem>
         </Show>
@@ -57,17 +52,16 @@ function App() {
         <GridItem pl="2" area={"main"}>
           <Flex justify="flex-start" align="center" mb={4}>
             <Platforms
-              selectedPlatform={selectedPlatform}
-              onSelectPlatform={handlePlatformSelect}
+              selectedPlatform={gameQuery.platform}
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platform })
+              }
             />
             <Flex pl={4}>
               <SortSelector />
             </Flex>
           </Flex>
-          <Cards
-            selectedGenre={selectedGenre}
-            selectedPlatform={selectedPlatform}
-          />
+          <Cards gameQuery={gameQuery} />
         </GridItem>
       </Grid>
     </>

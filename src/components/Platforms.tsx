@@ -15,8 +15,8 @@ import { IoChevronDownCircleOutline } from "react-icons/io5";
 import { Platform, usePlatforms } from "../hooks/usePlatforms";
 
 interface PlatformsProps {
-  onSelectPlatform: (platform: string) => void;
-  selectedPlatform: string;
+  onSelectPlatform: (platform: Platform) => void;
+  selectedPlatform: Platform | null;
 }
 
 export const Platforms: React.FC<PlatformsProps> = ({
@@ -26,9 +26,9 @@ export const Platforms: React.FC<PlatformsProps> = ({
   const { data, error } = usePlatforms();
   const [menuButtonLabel, setMenuButtonLabel] = useState("Select Platform");
 
-  const handlePlatformSelect = (platform: string) => {
+  const handlePlatformSelect = (platform: Platform) => {
     onSelectPlatform(platform);
-    setMenuButtonLabel(platform);
+    setMenuButtonLabel(platform.name);
   };
 
   return (
@@ -42,8 +42,8 @@ export const Platforms: React.FC<PlatformsProps> = ({
             <MenuItem
               key={platform.id}
               onClick={() => {
-                onSelectPlatform(platform.name);
-                handlePlatformSelect(platform.name);
+                onSelectPlatform(platform);
+                handlePlatformSelect(platform);
               }}
             >
               {platform.name}
