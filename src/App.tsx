@@ -1,8 +1,6 @@
 import "./App.css";
-
 import { Flex, Show, Grid, GridItem } from "@chakra-ui/react";
 import { NavBar } from "./components/NavBar";
-
 import { Cards } from "./components/Cards";
 import { Genres } from "./components/Genres";
 import { useState } from "react";
