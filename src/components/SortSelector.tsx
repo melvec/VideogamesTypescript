@@ -17,8 +17,16 @@ interface SortSelectorsProps {
   onSelectSortBy: (option: string) => void;
 }
 
-export const SortSelector = () => {
+export const SortSelector = ({ onSelectSortBy }: SortSelectorsProps) => {
   const [menuButtonLabel, setMenuButtonLabel] = useState("Order by:");
+  const sortOrders = [
+    { value: "", label: "Relevance" },
+    { value: "-added", label: "Date added" },
+    { value: "name", label: "Name" },
+    { value: "-released", label: "Release Date" },
+    { value: "-metacritic", label: "Popularity" },
+    { value: "-rating", label: "Average rating" },
+  ];
 
   return (
     <Box paddingBottom={6}>
@@ -27,12 +35,15 @@ export const SortSelector = () => {
           {menuButtonLabel}
         </MenuButton>
         <MenuList>
-          <MenuItem>Relevance</MenuItem>
-          <MenuItem>Date</MenuItem>
-          <MenuItem></MenuItem>
-          <MenuItem></MenuItem>
-          <MenuItem></MenuItem>
-          <MenuItem></MenuItem>
+          {sortOrders.map((item) => (
+            <MenuItem
+              key={item.value}
+              value={item.value}
+              onClick={() => onSelectSortBy(item.value)}
+            >
+              {item.label}
+            </MenuItem>
+          ))}
         </MenuList>
       </Menu>
     </Box>

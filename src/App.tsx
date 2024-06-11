@@ -14,6 +14,7 @@ import { Platform } from "./hooks/usePlatforms";
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortBy: string;
 }
 
 function App() {
@@ -58,7 +59,11 @@ function App() {
               }
             />
             <Flex pl={4}>
-              <SortSelector />
+              <SortSelector
+                onSelectSortBy={(sortBy) =>
+                  setGameQuery({ ...gameQuery, sortBy })
+                }
+              />
             </Flex>
           </Flex>
           <Cards gameQuery={gameQuery} />
