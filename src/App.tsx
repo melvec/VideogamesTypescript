@@ -60,6 +60,7 @@ function App() {
             />
             <Flex pl={4}>
               <SortSelector
+                sortOrder={gameQuery.sortBy}
                 onSelectSortBy={(sortBy) =>
                   setGameQuery({ ...gameQuery, sortBy })
                 }

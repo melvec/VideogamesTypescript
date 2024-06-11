@@ -7,6 +7,5 @@ export default axios.create({
   baseURL: apiURL,
   params: {
     key: apiKey,
-    page_size: 30,
   },
 });

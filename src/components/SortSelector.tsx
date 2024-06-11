@@ -1,13 +1,8 @@
-import React, { useState } from "react";
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Button,
   Box,
 } from "@chakra-ui/react";
@@ -15,10 +10,13 @@ import { IoChevronDownCircleOutline } from "react-icons/io5";
 
 interface SortSelectorsProps {
   onSelectSortBy: (option: string) => void;
+  sortOrder: string;
 }
 
-export const SortSelector = ({ onSelectSortBy }: SortSelectorsProps) => {
-  const [menuButtonLabel, setMenuButtonLabel] = useState("Order by:");
+export const SortSelector = ({
+  onSelectSortBy,
+  sortOrder,
+}: SortSelectorsProps) => {
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date added" },
@@ -28,11 +26,15 @@ export const SortSelector = ({ onSelectSortBy }: SortSelectorsProps) => {
     { value: "-rating", label: "Average rating" },
   ];
 
+  const currentSortOrder = sortOrders.find(
+    (order) => order.value === sortOrder
+  );
+
   return (
     <Box paddingBottom={6}>
       <Menu>
         <MenuButton as={Button} rightIcon={<IoChevronDownCircleOutline />}>
-          {menuButtonLabel}
+          Order by: {currentSortOrder?.label || "Relevance"}
         </MenuButton>
         <MenuList>
           {sortOrders.map((item) => (

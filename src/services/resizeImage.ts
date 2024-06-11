@@ -1,5 +1,3 @@
-const imageUrl =
-  "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg";
 // const resizeImage = (url: string) => {
 //   const parts = url.split("/");
 //   const index = parts.findIndex((part) => part === "media");

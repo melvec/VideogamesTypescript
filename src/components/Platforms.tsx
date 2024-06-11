@@ -3,10 +3,6 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
   Button,
   Box,
 } from "@chakra-ui/react";
@@ -20,10 +16,9 @@ interface PlatformsProps {
 }
 
 export const Platforms: React.FC<PlatformsProps> = ({
-  selectedPlatform,
   onSelectPlatform,
 }: PlatformsProps) => {
-  const { data, error } = usePlatforms();
+  const { data } = usePlatforms();
   const [menuButtonLabel, setMenuButtonLabel] = useState("Select Platform");
 
   const handlePlatformSelect = (platform: Platform) => {

@@ -1,7 +1,7 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import { Center, Spinner } from "@chakra-ui/react";
 import { GameQuery } from "../App";
-import useGames, { Game } from "../hooks/useGames";
+import useGames from "../hooks/useGames";
 import { GameCard } from "./GameCard";
 
 interface CardsProps {

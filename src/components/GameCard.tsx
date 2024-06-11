@@ -1,7 +1,6 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 
 import { Game } from "../hooks/useGames";
-import { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/resizeImage";
 import { PlatformIcons } from "./PlatformIcons";
 
