@@ -40,7 +40,7 @@ function App() {
         </GridItem>
 
         <Show above="lg">
-          <GridItem pl="2" padding={4} area={"aside"}>
+          <GridItem pl="2" padding={4} area={"aside"} paddingTop="30px">
             <Genres
               selectedGenre={gameQuery.genre}
               onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
@@ -49,7 +49,7 @@ function App() {
         </Show>
 
         <GridItem pl="2" area={"main"}>
-          <Flex justify="flex-start" align="center" mb={4}>
+          <Flex justify="flex-start" align="center" mb={4} paddingTop="30px">
             <Platforms
               selectedPlatform={gameQuery.platform}
               onSelectPlatform={(platform) =>

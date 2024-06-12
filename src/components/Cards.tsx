@@ -10,7 +10,6 @@ interface CardsProps {
 
 export const Cards: React.FC<CardsProps> = ({ gameQuery }: CardsProps) => {
   const { data, error, isLoading } = useGames(gameQuery);
-  console.log(data);
 
   return (
     <>
