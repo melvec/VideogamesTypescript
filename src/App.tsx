@@ -1,5 +1,5 @@
 import "./App.css";
-import { Flex, Show, Grid, GridItem } from "@chakra-ui/react";
+import { Flex, Show, Grid, GridItem, Box } from "@chakra-ui/react";
 import { NavBar } from "./components/NavBar";
 import { Cards } from "./components/Cards";
 import { Genres } from "./components/Genres";
@@ -8,6 +8,7 @@ import { Platforms } from "./components/Platforms";
 import { SortSelector } from "./components/SortSelector";
 import { Genre } from "./hooks/useGenres";
 import { Platform } from "./hooks/usePlatforms";
+import { Title } from "./components/Title";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -54,6 +55,9 @@ function App() {
         </Show>
 
         <GridItem pl="2" area={"main"}>
+          <Box paddingTop="30px">
+            <Title gameQuery={gameQuery} />
+          </Box>
           <Flex justify="flex-start" align="center" mb={4} paddingTop="30px">
             <Platforms
               selectedPlatform={gameQuery.platform}
