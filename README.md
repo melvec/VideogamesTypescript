@@ -11,9 +11,9 @@
 
 ## Overview
 
-This project involves the development of an interactive platform selection component for a game filtering application. Users can select gaming platforms dynamically and see the filtered results based on their selection.
+This is a videogame browser where users can select gaming platforms and genres dynamically and see the filtered results based on their selection.
 
-This is a Videogame browser. It displays a list of videogames coming from Rawg API.
+The videogames come from a public external API Rawg
 
 ## Technologies Used
 
