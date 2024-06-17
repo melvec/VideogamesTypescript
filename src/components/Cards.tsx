@@ -14,7 +14,7 @@ export const Cards: React.FC<CardsProps> = ({ gameQuery }: CardsProps) => {
   return (
     <>
       {error && (
-        <Center height="100vh">
+        <Center>
           <Spinner size="xl" color="gray.500" />
           <Text color={"gray.500"} ml={4} fontWeight="bold" fontSize="xl">
             {error}
@@ -27,16 +27,15 @@ export const Cards: React.FC<CardsProps> = ({ gameQuery }: CardsProps) => {
         justifyItems={{ md: "center" }}
       >
         {isLoading && (
-          <Center height="100vh">
+          <Center>
             <Spinner size="xl" color="gray.500" />
             <Text color={"gray.500"} ml={4} fontWeight="bold" fontSize="xl">
               Loading...
             </Text>
           </Center>
         )}
-        {data.map((game) => (
-          <GameCard key={game.id} game={game} />
-        ))}
+        {isLoading ||
+          data.map((game) => <GameCard key={game.id} game={game} />)}
       </SimpleGrid>
     </>
   );

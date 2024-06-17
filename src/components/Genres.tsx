@@ -22,7 +22,14 @@ export const Genres: React.FC<GenresProps> = ({ onSelectGenre }) => {
                 src={getCroppedImageUrl(genre.image_background)}
                 alt={genre.name}
               />
-              <Button variant="link" onClick={() => onSelectGenre(genre)}>
+              <Button
+                variant="link"
+                onClick={() => onSelectGenre(genre)}
+                whiteSpace="wrap"
+                textAlign="left"
+                overflow="hidden"
+                maxWidth="200px"
+              >
                 {genre.name}
               </Button>
             </HStack>

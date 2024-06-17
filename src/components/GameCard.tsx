@@ -14,7 +14,6 @@ export const GameCard = ({ game }: Props) => {
       <Box
         justifyContent="center"
         bg="gray.700"
-        maxW="sm"
         borderWidth="1px"
         borderRadius="lg"
         overflow="hidden"
@@ -22,10 +21,13 @@ export const GameCard = ({ game }: Props) => {
         flex="1"
         flexGrow={{ base: 1, md: 0 }}
         flexBasis={{ base: "100%", md: "50%" }}
+        maxW={{ base: "100%", md: "260px" }} // Set max width for medium-sized screens
+        margin="0 auto" // Center the image horizontally
       >
         <Image
           src={getCroppedImageUrl(game.background_image)}
           alt={game.name}
+          width="100%"
         />
 
         <Box padding={5}>
